@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Square Client</string>
+
+  <string name="token_title">Token</string>
+  <string name="token_desc">The token is required for the application to obtain your information by searching the official Square Cloud API. If you don\'t have a token yet, you can create one by going to\nSquare Cloud Dashboard > Settings > Request API Key</string>
+  <string name="token_field_hint">Enter your token</string>
+  <string name="token_btn_enter">Enter</string>
+
+  <string name="account_fetch_error">Unable to fetch account</string>
+
+</resources>
