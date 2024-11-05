@@ -1,12 +1,10 @@
 package com.teixeira0x.squareclient.data.repository
 
-import androidx.compose.ui.res.stringResource
 import com.teixeira0x.squareclient.data.mapper.account.AccountMapper.toAccount
 import com.teixeira0x.squareclient.data.model.RequestException
 import com.teixeira0x.squareclient.data.service.AccountService
 import com.teixeira0x.squareclient.domain.model.Account
 import com.teixeira0x.squareclient.domain.repository.AccountRepository
-import com.teixeira0x.squateclient.Strings
 import java.net.HttpURLConnection
 import javax.inject.Inject
 
@@ -24,7 +22,7 @@ constructor(private val service: AccountService) : AccountRepository {
 
     return Result.failure(
       RequestException(
-        message = stringResource(Strings.account_fetch_error),
+        message = "Unable to fetch account",
         code = HttpURLConnection.HTTP_INTERNAL_ERROR,
       )
     )
