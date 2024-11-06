@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 /** @author Felipe Teixeira */
 @HiltViewModel
-class DetailViewModel
+class AccountDetailViewModel
 @Inject
 constructor(private val fetchAccountUseCase: FetchAccountUseCase) :
   ViewModel() {}

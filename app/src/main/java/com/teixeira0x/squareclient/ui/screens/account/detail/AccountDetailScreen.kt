@@ -15,7 +15,7 @@ import com.teixeira0x.squareclient.ui.components.TopBar
 @Composable
 fun AccountDetailScreen() {
 
-  val viewModel = hiltViewModel<DetailViewModel>()
+  val viewModel = hiltViewModel<AccountDetailViewModel>()
 
   Screen(topBar = { TopBar(title = "User Screen") }) { paddingValues ->
     Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
