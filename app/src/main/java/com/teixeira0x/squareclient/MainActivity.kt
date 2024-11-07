@@ -7,14 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.teixeira0x.squareclient.nav.AccountDetailScreenRoute
-import com.teixeira0x.squareclient.nav.TokenScreenRoute
+import com.teixeira0x.squareclient.nav.accountDetailScreenRoute
+import com.teixeira0x.squareclient.nav.accountTokenScreenRoute
 import com.teixeira0x.squareclient.ui.screens.account.detail.AccountDetailScreen
 import com.teixeira0x.squareclient.ui.screens.account.token.TokenScreen
 import com.teixeira0x.squareclient.ui.theme.SquareClientAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-/** @author Felipe Teixeira */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
@@ -27,12 +26,15 @@ class MainActivity : ComponentActivity() {
 
         NavHost(
           navController = navController,
-          startDestination = TokenScreenRoute,
+          startDestination = accountTokenScreenRoute(),
         ) {
-          composable<TokenScreenRoute> { TokenScreen(navController) }
+          composable(accountTokenScreenRoute()) { TokenScreen(navController) }
 
-          composable<AccountDetailScreenRoute> { route ->
-            AccountDetailScreen(/* ... */ )
+          composable(accountDetailScreenRoute()) { backStackEntry ->
+            AccountDetailScreen(
+              navController,
+              backStackEntry.arguments?.getString("token") ?: "",
+            )
           }
         }
       }

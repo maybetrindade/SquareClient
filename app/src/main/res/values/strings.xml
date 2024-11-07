@@ -2,11 +2,21 @@
 <resources>
   <string name="app_name">Square Client</string>
 
+  <string name="common_unavailable">Unavailable</string>
+
   <string name="token_title">Token</string>
   <string name="token_desc">The token is required for the application to obtain your information by searching the official Square Cloud API. If you don\'t have a token yet, you can create one by going to\nSquare Cloud Dashboard > Settings > Request API Key</string>
   <string name="token_field_hint">Enter your token</string>
   <string name="token_btn_enter">Enter</string>
 
   <string name="account_fetch_error">Unable to fetch account</string>
+  <string name="account_detail_title">Account Information</string>
+  <string name="account_detail_user_loading">Loading account, please wait...</string>
+  <string name="account_detail_user_username">Username</string>
+  <string name="account_detail_user_email">E-mail</string>
+  <string name="account_detail_user_id">Account ID</string>
+  <string name="account_detail_user_plan">Your Plan</string>
+  <string name="account_detail_user_plan_expiration">Plan expiration</string>
+  <string name="account_detail_user_plan_memory">Plan memory</string>
 
 </resources>

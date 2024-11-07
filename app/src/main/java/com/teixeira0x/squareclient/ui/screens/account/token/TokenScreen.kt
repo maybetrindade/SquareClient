@@ -22,7 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.teixeira0x.squareclient.Strings
 import com.teixeira0x.squareclient.data.validator.account.TokenValidator.isValidToken
-import com.teixeira0x.squareclient.nav.AccountDetailScreenRoute
+import com.teixeira0x.squareclient.nav.accountDetailScreenRoute
 import com.teixeira0x.squareclient.ui.components.Screen
 import com.teixeira0x.squareclient.ui.components.TextField
 import com.teixeira0x.squareclient.ui.components.TopBar
@@ -66,7 +66,7 @@ fun TokenScreen(navController: NavController) {
           viewModel.fetchAccount(
             token = uiState.token.trim(),
             onSuccess = {
-              navController.navigate(AccountDetailScreenRoute(uiState.token))
+              navController.navigate(accountDetailScreenRoute(uiState.token))
             },
             onError = { viewModel.updateErrorMessage(it.localizedMessage) },
           )

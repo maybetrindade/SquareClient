@@ -1,7 +1,15 @@
 package com.teixeira0x.squareclient.nav
 
-import kotlinx.serialization.Serializable
+/** Here are screen navigation routes. */
 
-@Serializable object TokenScreenRoute
+/** Navigation route to the token insertion screen */
+fun accountTokenScreenRoute() = "account_token_screen"
 
-@Serializable data class AccountDetailScreenRoute(val token: String)
+/**
+ * Navigation route to account details screen obtained with token.
+ *
+ * @param token The account token for the details or by default the declaration
+ *   of an argument to the `{token}` route.
+ */
+fun accountDetailScreenRoute(token: String = "{token}") =
+  "account_detail_screen/$token"
