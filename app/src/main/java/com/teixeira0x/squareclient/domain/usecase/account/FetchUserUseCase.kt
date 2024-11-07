@@ -4,7 +4,11 @@ import com.teixeira0x.squareclient.domain.model.Account
 import com.teixeira0x.squareclient.domain.repository.AccountRepository
 import javax.inject.Inject
 
-/** @author Felipe Teixeira */
+/**
+ * Use case for getting an account from the account repository.
+ *
+ * @author Felipe Teixeira 
+ */
 class FetchAccountUseCase
 @Inject
 constructor(private val repository: AccountRepository) {
