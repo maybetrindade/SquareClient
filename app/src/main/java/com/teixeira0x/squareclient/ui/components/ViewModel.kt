@@ -9,13 +9,14 @@ import kotlinx.coroutines.launch
 
 open class BaseViewModel : ViewModel() {
 
-  private var apiState by mutableStateOf(APIState())
+  private var _isLoading by mutableStateOf(false)
+  private var _error by mutableStateOf<String?>(null)
 
   val isLoading: Boolean
-    get() = apiState.isLoading
+    get() = _isLoading
 
   val error: String?
-    get() = apiState.error
+    get() = _error
 
   protected fun <T> call(
     apiCall: suspend () -> Result<T>,
@@ -23,29 +24,25 @@ open class BaseViewModel : ViewModel() {
     onError: ((Throwable) -> Unit)? = null,
   ) =
     viewModelScope.launch {
-      updateLoading(true)
+      setError(null)
+      setLoading(true)
 
       val result = apiCall()
 
-      updateLoading(false)
+      setLoading(false)
 
       result.getOrNull()?.let { onSuccess?.invoke(it) }
       result.exceptionOrNull()?.let {
-        updateError(it.message)
+        setError(it.message)
         onError?.invoke(it)
       }
     }
 
-  protected fun updateLoading(loading: Boolean) {
-    apiState = apiState.copy(isLoading = loading)
+  protected fun setLoading(loading: Boolean) {
+    _isLoading = loading
   }
 
-  protected fun updateError(error: String?) {
-    apiState = apiState.copy(error = error)
+  protected fun setError(error: String?) {
+    _error = error
   }
-
-  data class APIState(
-    val isLoading: Boolean = false,
-    val error: String? = null,
-  )
 }

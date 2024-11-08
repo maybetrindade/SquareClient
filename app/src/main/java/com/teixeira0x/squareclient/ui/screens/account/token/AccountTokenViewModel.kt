@@ -16,14 +16,13 @@ class AccountTokenViewModel
 constructor(private val fetchAccountUseCase: FetchAccountUseCase) :
   BaseViewModel() {
 
-  var uiState by mutableStateOf(UiState())
+  private var _state by mutableStateOf(UiState())
+
+  val state: UiState
+    get() = _state
 
   fun updateToken(token: String) {
-    uiState = uiState.copy(token = token)
-  }
-
-  fun updateErrorMessage(errorMessage: String?) {
-    uiState = uiState.copy(errorMessage = errorMessage)
+    _state = _state.copy(token = token)
   }
 
   fun fetchAccount(
@@ -31,23 +30,12 @@ constructor(private val fetchAccountUseCase: FetchAccountUseCase) :
     onSuccess: (Account) -> Unit,
     onError: (Throwable) -> Unit,
   ) {
-    uiState = uiState.copy(loading = true)
     call(
       apiCall = { fetchAccountUseCase(token) },
-      onSuccess = {
-        uiState = uiState.copy(loading = false)
-        onSuccess(it)
-      },
-      onError = {
-        uiState = uiState.copy(loading = false)
-        onError(it)
-      },
+      onSuccess = onSuccess,
+      onError = onError,
     )
   }
 
-  data class UiState(
-    val token: String = "",
-    val errorMessage: String? = null,
-    val loading: Boolean = false,
-  )
+  data class UiState(val token: String = "")
 }

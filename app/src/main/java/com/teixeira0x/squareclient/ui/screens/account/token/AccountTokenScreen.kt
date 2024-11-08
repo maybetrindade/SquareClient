@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,9 +33,11 @@ import com.teixeira0x.squareclient.ui.components.TopBar
 @Composable
 fun AccountTokenScreen(navController: NavController) {
   val viewModel = hiltViewModel<AccountTokenViewModel>()
-  val uiState = viewModel.uiState
+  val isLoading = viewModel.isLoading
+  val state = viewModel.state
+  val token = state.token
 
-  var isValidToken by remember { mutableStateOf(uiState.token.isValidToken()) }
+  var isValidToken by remember { mutableStateOf(token.isValidToken()) }
 
   Screen(topBar = { TopBar(title = stringResource(Strings.token_title)) }) {
     paddingValues ->
@@ -51,7 +55,7 @@ fun AccountTokenScreen(navController: NavController) {
         modifier = Modifier.fillMaxWidth(),
         label = stringResource(Strings.token_field_hint),
         isError = !isValidToken,
-        value = uiState.token,
+        value = token,
       ) {
         viewModel.updateToken(it)
         isValidToken = it.isValidToken()
@@ -61,23 +65,37 @@ fun AccountTokenScreen(navController: NavController) {
 
       Button(
         onClick = {
-          viewModel.updateErrorMessage(null)
-
-          viewModel.fetchAccount(
-            token = uiState.token.trim(),
-            onSuccess = {
-              navController.navigate(accountDetailScreenRoute(uiState.token))
-            },
-            onError = { viewModel.updateErrorMessage(it.localizedMessage) },
-          )
+          if (!isLoading) {
+            viewModel.fetchAccount(
+              token = token.trim(),
+              onSuccess = {
+                navController.navigate(accountDetailScreenRoute(token))
+              },
+              onError = {},
+            )
+          }
         },
         modifier = Modifier.fillMaxWidth(),
         enabled = isValidToken,
       ) {
-        Text(stringResource(Strings.token_btn_enter), maxLines = 1)
+        if (isLoading) {
+          CircularProgressIndicator(
+            modifier = Modifier.width(15.dp).height(15.dp),
+            color = MaterialTheme.colorScheme.secondary,
+            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+          )
+        } else Text(stringResource(Strings.token_btn_enter), maxLines = 1)
       }
 
-      uiState.errorMessage?.let { Text(text = uiState.errorMessage) }
+      Spacer(modifier = Modifier.height(10.dp))
+
+      viewModel.error?.let {
+        Text(
+          text = it,
+          color = MaterialTheme.colorScheme.error,
+          style = MaterialTheme.typography.bodySmall,
+        )
+      }
     }
   }
 }
