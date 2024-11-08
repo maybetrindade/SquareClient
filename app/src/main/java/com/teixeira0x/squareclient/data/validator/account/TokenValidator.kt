@@ -1,7 +1,7 @@
 package com.teixeira0x.squareclient.data.validator.account
 
 /**
- * Class with useful functions to validate a token from the Square Cloud API. 
+ * Class with useful functions to validate a token from the Square Cloud API.
  *
  * @author Felipe Teixeira
  */

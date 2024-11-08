@@ -7,7 +7,7 @@ import javax.inject.Inject
 /**
  * Use case for getting an account from the account repository.
  *
- * @author Felipe Teixeira 
+ * @author Felipe Teixeira
  */
 class FetchAccountUseCase
 @Inject

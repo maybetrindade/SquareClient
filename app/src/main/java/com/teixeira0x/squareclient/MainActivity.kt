@@ -28,7 +28,9 @@ class MainActivity : ComponentActivity() {
           navController = navController,
           startDestination = accountTokenScreenRoute(),
         ) {
-          composable(accountTokenScreenRoute()) { AccountTokenScreen(navController) }
+          composable(accountTokenScreenRoute()) {
+            AccountTokenScreen(navController)
+          }
 
           composable(accountDetailScreenRoute()) { backStackEntry ->
             AccountDetailScreen(

@@ -8,7 +8,8 @@ import com.teixeira0x.squareclient.domain.model.Plan
 import com.teixeira0x.squareclient.domain.model.User
 
 /**
- * Class with useful functions to convert account response objects [data.model.response.account] into domain models [domain.model].
+ * Class with useful functions to convert account response objects
+ * [data.model.response.account] into domain models [domain.model].
  *
  * @author Felipe Teixeira
  */
