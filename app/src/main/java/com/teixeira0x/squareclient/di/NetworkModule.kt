@@ -1,5 +1,6 @@
 package com.teixeira0x.squareclient.di
 
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.teixeira0x.squareclient.BuildConfig
@@ -7,10 +8,13 @@ import com.teixeira0x.squareclient.data.service.AccountService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
+import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -23,11 +27,21 @@ object NetworkModule {
   @Provides fun providesGson() = GsonBuilder().create()
 
   @Provides
-  fun providesOkHttpClient(): OkHttpClient {
+  fun providesOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
+    val cacheSize = (10 * 1024 * 1024).toLong()
+    val cache = Cache(context.cacheDir, cacheSize)
     return OkHttpClient.Builder()
-      .connectTimeout(20, TimeUnit.SECONDS)
-      .readTimeout(20, TimeUnit.SECONDS)
-      .writeTimeout(20, TimeUnit.SECONDS)
+      .cache(cache)
+      .addInterceptor(
+        HttpLoggingInterceptor().apply {
+          level =
+            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+            else HttpLoggingInterceptor.Level.NONE
+        }
+      )
+      .connectTimeout(1, TimeUnit.MINUTES)
+      .readTimeout(1, TimeUnit.MINUTES)
+      .writeTimeout(1, TimeUnit.MINUTES)
       .build()
   }
 

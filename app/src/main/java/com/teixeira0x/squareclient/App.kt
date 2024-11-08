@@ -4,4 +4,10 @@ import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 /** @author Felipe Teixeira */
-@HiltAndroidApp class App : Application() {}
+@HiltAndroidApp
+class App : Application() {
+
+  companion object {
+    val app by lazy { App() }
+  }
+}
