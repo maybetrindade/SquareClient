@@ -7,8 +7,7 @@ package com.teixeira0x.squareclient.data.validator.account
  */
 object TokenValidator {
 
-  /** Maximum length of an API token [this value may be wrong]. */
-  const val MAX_TOKEN_LENGTH = 84
+  const val MIN_TOKEN_LENGTH = 8
 
   /**
    * Checks if the string is a valid token.
@@ -17,6 +16,6 @@ object TokenValidator {
    */
   fun String.isValidToken(): Boolean {
     val token = this.trim()
-    return token.isNotEmpty() && token.length == MAX_TOKEN_LENGTH
+    return token.isNotEmpty() && token.length >= MIN_TOKEN_LENGTH
   }
 }
