@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.teixeira0x.squareclient.nav.accountDetailScreenRoute
 import com.teixeira0x.squareclient.nav.accountTokenScreenRoute
 import com.teixeira0x.squareclient.ui.screens.account.detail.AccountDetailScreen
-import com.teixeira0x.squareclient.ui.screens.account.token.TokenScreen
+import com.teixeira0x.squareclient.ui.screens.account.token.AccountTokenScreen
 import com.teixeira0x.squareclient.ui.theme.SquareClientAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
           navController = navController,
           startDestination = accountTokenScreenRoute(),
         ) {
-          composable(accountTokenScreenRoute()) { TokenScreen(navController) }
+          composable(accountTokenScreenRoute()) { AccountTokenScreen(navController) }
 
           composable(accountDetailScreenRoute()) { backStackEntry ->
             AccountDetailScreen(

@@ -29,8 +29,8 @@ import com.teixeira0x.squareclient.ui.components.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TokenScreen(navController: NavController) {
-  val viewModel = hiltViewModel<TokenViewModel>()
+fun AccountTokenScreen(navController: NavController) {
+  val viewModel = hiltViewModel<AccountTokenViewModel>()
   val uiState = viewModel.uiState
 
   var isValidToken by remember { mutableStateOf(uiState.token.isValidToken()) }

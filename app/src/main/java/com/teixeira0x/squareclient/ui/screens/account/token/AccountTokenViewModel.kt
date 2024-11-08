@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 /** @author Felipe Teixeira */
 @HiltViewModel
-class TokenViewModel
+class AccountTokenViewModel
 @Inject
 constructor(private val fetchAccountUseCase: FetchAccountUseCase) :
   BaseViewModel() {
