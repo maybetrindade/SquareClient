@@ -35,6 +35,7 @@ import com.teixeira0x.squareclient.Strings
 import com.teixeira0x.squareclient.domain.model.Account
 import com.teixeira0x.squareclient.ui.components.Screen
 import com.teixeira0x.squareclient.ui.components.TopBar
+import java.text.DateFormat
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -96,7 +97,7 @@ private fun AccountDetailCard(account: Account?, errorMessage: String?) =
       AccountDetailItem(
         name = stringResource(Strings.account_detail_user_plan_expiration),
         value =
-          plan.duration?.toString()
+          plan.duration?.let { formatTime(it) }
             ?: stringResource(Strings.common_unavailable),
       )
       AccountDetailItem(
@@ -171,3 +172,7 @@ private fun SimpleError(errorMessage: String) =
   ) {
     Text(text = errorMessage, style = MaterialTheme.typography.bodyMedium)
   }
+
+private fun formatTime(time: Long): String {
+  return DateFormat.getDateTimeInstance().format(time)
+}
