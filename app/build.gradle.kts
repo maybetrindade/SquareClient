@@ -4,7 +4,6 @@ plugins {
   id("kotlin-kapt")
   id("org.jetbrains.kotlin.plugin.compose")
   id("dagger.hilt.android.plugin")
-  kotlin("plugin.serialization")
 }
 
 android {
@@ -52,48 +51,48 @@ android {
     buildConfig = true
     compose = true
   }
-  composeOptions { kotlinCompilerExtensionVersion = "1.3.2" }
+
   packaging { resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}") }
 }
 
 kapt { correctErrorTypes = true }
 
 dependencies {
-  implementation("androidx.appcompat:appcompat:1.7.0")
-  implementation("androidx.core:core-ktx:1.13.1")
-  implementation("androidx.datastore:datastore-preferences:1.1.1")
+  // AndroidX
+  implementation(libs.androidx.appcompat)
+  implementation(libs.androidx.core.ktx)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.datastore.prefs)
 
   // Jetpack Compose
-  implementation(platform("androidx.compose:compose-bom:2024.09.03"))
-  implementation("androidx.activity:activity-compose:1.5.1")
-  implementation("androidx.compose.ui:ui-tooling-preview")
-  implementation("androidx.compose.ui:ui")
-  debugImplementation("androidx.compose.ui:ui-test-manifest")
-  debugImplementation("androidx.compose.ui:ui-tooling")
-  implementation("androidx.compose.ui:ui-graphics")
-  implementation("androidx.compose.material3:material3")
-  implementation("androidx.compose.material:material-icons-extended")
-  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
-  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
-  implementation("androidx.navigation:navigation-compose:2.8.2")
-  implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+  implementation(platform(libs.androidx.compose.bom))
+  implementation(libs.androidx.compose.activity)
+  implementation(libs.androidx.compose.ui)
+  debugImplementation(libs.androidx.compose.ui.tooling)
+  debugImplementation(libs.androidx.compose.ui.test.manifest)
+  implementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.compose.ui.graphics)
+  implementation(libs.androidx.compose.material.icons.extended)
+  implementation(libs.androidx.compose.material3)
+  implementation(libs.androidx.compose.viewmodel)
+  implementation(libs.androidx.compose.navigation)
+  implementation(libs.androidx.compose.hilt)
 
   // Google
-  implementation("com.google.android.material:material:1.12.0")
-  implementation("com.google.code.gson:gson:2.10.1")
-  implementation("com.google.dagger:hilt-android:2.52")
-  kapt("com.google.dagger:hilt-compiler:2.52")
+  implementation(libs.google.material)
+  implementation(libs.google.gson)
+  implementation(libs.google.hilt)
+  kapt(libs.google.hilt.compiler)
 
   // Network
-  implementation("com.squareup.retrofit2:retrofit:2.9.0")
-  implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-  implementation("com.squareup.okhttp3:okhttp:4.12.0")
-  implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+  implementation(libs.network.retrofit)
+  implementation(libs.network.retrofit.gson)
+  implementation(libs.network.okhttp)
+  implementation(libs.network.okhttp.logging)
 
   // Kotlin
-  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+  implementation(libs.kotlin.coroutines.android)
 
   // Test
-  testImplementation("junit:junit:4.13.2")
+  testImplementation(libs.tests.junit)
 }
