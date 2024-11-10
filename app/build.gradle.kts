@@ -1,3 +1,5 @@
+import com.teixeira0x.squareclient.build.BuildConfig
+
 plugins {
   id("com.android.application")
   id("kotlin-android")
@@ -7,16 +9,10 @@ plugins {
 }
 
 android {
-  namespace = "com.teixeira0x.squareclient"
-  compileSdk = 34
+  namespace = BuildConfig.packageName
 
   defaultConfig {
-    applicationId = "com.teixeira0x.squareclient"
-    minSdk = 21
-    targetSdk = 34
-    versionCode = 1
-    versionName = "1.0"
-
+    applicationId = BuildConfig.packageName
     vectorDrawables.useSupportLibrary = true
   }
 
