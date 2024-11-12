@@ -14,6 +14,8 @@ android {
   defaultConfig {
     applicationId = BuildConfig.packageName
     vectorDrawables.useSupportLibrary = true
+
+    buildConfigField("String", "BASE_URL", "\"https://api.squarecloud.app/v2/\"")
   }
 
   compileOptions {
@@ -30,8 +32,6 @@ android {
       )
     }
   }
-
-  buildConfigField("String", "BASE_URL", "\"https://api.squarecloud.app/v2/\"")
 
   buildFeatures {
     buildConfig = true
