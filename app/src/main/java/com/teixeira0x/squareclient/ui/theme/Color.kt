@@ -1,4 +1,4 @@
-package com.example.compose
+package com.teixeira0x.squareclient.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
