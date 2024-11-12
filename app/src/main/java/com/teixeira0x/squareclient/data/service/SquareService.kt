@@ -5,8 +5,12 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
 
-/** @author Felipe Teixeira */
-interface AccountService {
+/**
+  API service.
+  
+  @author Felipe Teixeira
+ */
+interface SquareService {
 
   @GET("users/me")
   suspend fun fetchAccount(

@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.teixeira0x.squareclient.BuildConfig
-import com.teixeira0x.squareclient.data.service.AccountService
+import com.teixeira0x.squareclient.data.service.SquareService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -59,6 +59,6 @@ object NetworkModule {
   }
 
   @Provides
-  fun providesAccountService(retrofit: Retrofit): AccountService =
-    retrofit.create(AccountService::class.java)
+  fun providesSquareService(retrofit: Retrofit): SquareService =
+    retrofit.create(SquareService::class.java)
 }
