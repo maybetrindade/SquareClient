@@ -18,6 +18,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -32,6 +33,7 @@ import com.teixeira0x.squareclient.ui.components.TopBar
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountTokenScreen(navController: NavController) {
+  val context = LocalContext.current
   val viewModel = hiltViewModel<AccountTokenViewModel>()
   val isLoading = viewModel.isLoading
   val state = viewModel.state

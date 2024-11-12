@@ -14,10 +14,14 @@ class AccountRepositoryImpl
 constructor(private val service: AccountService) : AccountRepository {
 
   override suspend fun fetchAccount(token: String): Result<Account> {
-    val response = service.fetchAccount(token).body()
-    if (response?.status == "success") {
-      val account = response.response!!.toAccount()
-      return Result.success(account)
+    try {
+      val response = service.fetchAccount(token).body()
+      if (response?.status == "success") {
+        val account = response.response!!.toAccount()
+        return Result.success(account)
+      }
+    } catch (th: Throwable) {
+      th.printStackTrace()
     }
 
     return Result.failure(

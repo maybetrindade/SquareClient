@@ -32,5 +32,8 @@ constructor(private val fetchAccountUseCase: FetchAccountUseCase) :
     )
   }
 
-  data class AccountDetailState(val account: Account? = null)
+  data class AccountDetailState(
+    val account: Account? = null,
+    val hasNetwork: Boolean = true,
+  )
 }
