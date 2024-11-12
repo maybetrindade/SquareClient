@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.teixeira0x.squareclient.Strings
-import com.teixeira0x.squareclient.domain.model.Account
+import com.teixeira0x.squareclient.domain.model.account.Account
 import com.teixeira0x.squareclient.ui.components.Screen
 import com.teixeira0x.squareclient.ui.components.TopBar
 import java.text.DateFormat

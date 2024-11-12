@@ -1,11 +1,11 @@
 package com.teixeira0x.squareclient.data.mapper.account
 
 import com.teixeira0x.squareclient.data.model.response.account.*
-import com.teixeira0x.squareclient.domain.model.Account
-import com.teixeira0x.squareclient.domain.model.Application
-import com.teixeira0x.squareclient.domain.model.Memory
-import com.teixeira0x.squareclient.domain.model.Plan
-import com.teixeira0x.squareclient.domain.model.User
+import com.teixeira0x.squareclient.domain.model.account.Account
+import com.teixeira0x.squareclient.domain.model.account.Application
+import com.teixeira0x.squareclient.domain.model.account.Memory
+import com.teixeira0x.squareclient.domain.model.account.Plan
+import com.teixeira0x.squareclient.domain.model.account.User
 
 /**
  * Class with useful functions to convert account response objects

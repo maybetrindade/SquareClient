@@ -3,7 +3,7 @@ package com.teixeira0x.squareclient.ui.screens.account.token
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.teixeira0x.squareclient.domain.model.Account
+import com.teixeira0x.squareclient.domain.model.account.Account
 import com.teixeira0x.squareclient.domain.usecase.account.FetchAccountUseCase
 import com.teixeira0x.squareclient.ui.screens.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -6,9 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 
 /**
-  API service.
-  
-  @author Felipe Teixeira
+ * API service.
+ *
+ * @author Felipe Teixeira
  */
 interface SquareService {
 

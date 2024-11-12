@@ -3,7 +3,7 @@ package com.teixeira0x.squareclient.data.repository
 import com.teixeira0x.squareclient.data.mapper.account.AccountMapper.toAccount
 import com.teixeira0x.squareclient.data.model.RequestException
 import com.teixeira0x.squareclient.data.service.SquareService
-import com.teixeira0x.squareclient.domain.model.Account
+import com.teixeira0x.squareclient.domain.model.account.Account
 import com.teixeira0x.squareclient.domain.repository.AccountRepository
 import java.net.HttpURLConnection
 import javax.inject.Inject

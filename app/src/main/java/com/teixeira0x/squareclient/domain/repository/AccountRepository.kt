@@ -1,6 +1,6 @@
 package com.teixeira0x.squareclient.domain.repository
 
-import com.teixeira0x.squareclient.domain.model.Account
+import com.teixeira0x.squareclient.domain.model.account.Account
 
 /**
  * Account repository.

@@ -1,6 +1,6 @@
 package com.teixeira0x.squareclient.domain.usecase.account
 
-import com.teixeira0x.squareclient.domain.model.Account
+import com.teixeira0x.squareclient.domain.model.account.Account
 import com.teixeira0x.squareclient.domain.repository.AccountRepository
 import javax.inject.Inject
 

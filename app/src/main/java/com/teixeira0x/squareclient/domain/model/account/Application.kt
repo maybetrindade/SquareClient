@@ -1,4 +1,4 @@
-package com.teixeira0x.squareclient.domain.model
+package com.teixeira0x.squareclient.domain.model.account
 
 /** @author Felipe Teixeira */
 data class Application(
