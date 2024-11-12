@@ -31,17 +31,7 @@ android {
     }
   }
 
-  flavorDimensions("env")
-
-  productFlavors {
-    create("production") {
-      buildConfigField(
-        "String",
-        "BASE_URL",
-        "\"https://api.squarecloud.app/v2/\"",
-      )
-    }
-  }
+  buildConfigField("String", "BASE_URL", "\"https://api.squarecloud.app/v2/\"")
 
   buildFeatures {
     buildConfig = true
