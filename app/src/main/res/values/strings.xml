@@ -3,6 +3,7 @@
   <string name="app_name">Square Client</string>
 
   <string name="common_unavailable">Unavailable</string>
+  <string name="common_retry">Retry</string>
 
   <string name="token_title">Token</string>
   <string name="token_desc">The token is required for the application to obtain your information by searching the official Square Cloud API. If you don\'t have a token yet, you can create one by going to\nSquare Cloud Dashboard > Settings > Request API Key</string>
