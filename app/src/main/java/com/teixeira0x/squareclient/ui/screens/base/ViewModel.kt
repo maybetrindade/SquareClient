@@ -1,4 +1,4 @@
-package com.teixeira0x.squareclient.ui.components
+package com.teixeira0x.squareclient.ui.screens.base
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
