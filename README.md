@@ -9,7 +9,7 @@
 
 SquareClient uses the official Square Cloud API to help you manage your apps.
 
-See more at [ABOUT.md](https://github.com/teixeira0x/SquareClient/assets/about/ABOUT.md)
+See more at [ABOUT.md](https://github.com/teixeira0x/SquareClient/blob/main/assets/about/ABOUT.md)
 
 ## Thanks to
 - [João Otávio](https://joaootavios.dev/) for the awesome [Square Cloud](https://squarecloud.app)
