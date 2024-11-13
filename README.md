@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".assets/ic.png" alt="Square Client" width="90" height="90"/>
+  <img src="./assets/ic.png" alt="Square Client" width="90" height="90"/>
 </div>
 
 <h1 align="center"><b>Square Client</b></h1>
